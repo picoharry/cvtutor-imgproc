@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{42C1169A-956B-4573-94D0-68ADD0D510C7}</ProjectGuid>
+    <ProjectGuid>{2594F3E4-8498-42D3-9092-9521ED7D832F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>CVTutorImgProcSmoothing01</RootNamespace>
+    <RootNamespace>CVTutorImgProcMorphEx01</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -149,7 +149,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CVTutor.ImgProc.Smoothing01.cpp" />
+    <ClCompile Include="CVTutor.ImgProc.MorphEx01.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>

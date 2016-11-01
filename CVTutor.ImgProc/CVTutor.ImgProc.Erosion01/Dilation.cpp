@@ -15,17 +15,19 @@ void cvtutor::imgproc::try_dilation(int pos, void* arg)
 		// ????
 		return;
 	}
-	Mat src = param->getSrcMat();
-	Mat dst = param->getDstMat();
+	Mat& src = param->getSrcMat();
+	Mat& dst = param->getDstMat();
+	int& type = param->getMorphType();
+	int& size = param->getMorphSize();
 
 	// tbd:
 	int dilation_type = MORPH_RECT;
-	//if (dilation_elem == 0) { dilation_type = MORPH_RECT; }
-	//else if (dilation_elem == 1) { dilation_type = MORPH_CROSS; }
-	//else if (dilation_elem == 2) { dilation_type = MORPH_ELLIPSE; }
+	if (type == 0) { dilation_type = MORPH_RECT; }
+	else if (type == 1) { dilation_type = MORPH_CROSS; }
+	else if (type == 2) { dilation_type = MORPH_ELLIPSE; }
 
 	// tbd:
-	int dilation_size = 10;
+	int& dilation_size = size;
 	Mat element = getStructuringElement(dilation_type,
 		Size(2 * dilation_size + 1, 2 * dilation_size + 1),
 		Point(dilation_size, dilation_size));

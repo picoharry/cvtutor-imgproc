@@ -82,6 +82,14 @@ int main(int argc, char** argv)
 	try_erosion(0, &erosion_param);
 	try_dilation(0, &dilation_param);
 
-	waitKey(0);
+	for (;;)
+	{
+		int c;
+		c = waitKey(20);
+		if ((char)c == 27 || (char)c == 113)   // Escape || 'q'.
+		{
+			break;
+		}
+	}
 	return 0;
 }

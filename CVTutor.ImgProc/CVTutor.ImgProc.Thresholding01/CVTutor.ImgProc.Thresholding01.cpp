@@ -58,23 +58,19 @@ int main(int argc, char** argv)
 	// Create a window to display results
 	namedWindow(window_name, WINDOW_AUTOSIZE);
 
-	// ????? What is all this weird cast????
-	// ThresholdParam param = ThresholdParam(src_gray, dst, *((double*)&threshold_value), *((double*)&max_BINARY_value), threshold_type);
-	ThresholdParam typeParam = ThresholdParam(src_gray, dst, threshold_value, const_cast<int&>(max_BINARY_value), threshold_type);
-	ThresholdParam valueParam = ThresholdParam(src_gray, dst, threshold_value, const_cast<int&>(max_BINARY_value), threshold_type);
+	ThresholdParam param = ThresholdParam(src_gray, dst, threshold_value, const_cast<int&>(max_BINARY_value), threshold_type);
 
-	//createTrackbar(trackbar_type,
-	//	window_name, &threshold_type,
-	//	max_type, thresholdCallback, &typeParam);
+	createTrackbar(trackbar_type,
+		window_name, &threshold_type,
+		max_type, thresholdCallback, &param);
 
 	createTrackbar(trackbar_value,
 		window_name, &threshold_value,
-		max_value, thresholdCallback, &valueParam);
+		max_value, thresholdCallback, &param);
 
 	// Call the function to initialize
 	thresholdCallback(0, nullptr);
 
-	// Why not just waitKey(0)???
 	for (;;)
 	{
 		int c;
@@ -84,6 +80,7 @@ int main(int argc, char** argv)
 			break;
 		}
 	}
+	return 0;
 }
 
 
@@ -102,8 +99,8 @@ void thresholdCallback(int pos, void* arg)
 	}
 	Mat& src = param->getSrcMat();
 	Mat& dst = param->getDstMat();
-	double& value = param->getValue();
-	double& maxValue = param->getMaxValue();
+	int& value = param->getValue();
+	int& maxValue = param->getMaxValue();
 	int& type = param->getThresholdType();
 
 	cout << "value = " + to_string(value) << endl;

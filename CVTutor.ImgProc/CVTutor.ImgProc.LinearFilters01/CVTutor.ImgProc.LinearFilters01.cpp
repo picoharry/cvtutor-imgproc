@@ -58,7 +58,6 @@ int main(int argc, char** argv)
 		ind++;
 	}
 	
-	system("pause");
 	return 0;
 }
 

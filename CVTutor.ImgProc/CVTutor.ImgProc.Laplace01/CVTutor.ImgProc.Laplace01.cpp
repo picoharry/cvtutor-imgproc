@@ -11,7 +11,7 @@ using namespace cv;
 
 int main(int argc, char** argv)
 {
-	const string window_name = "Laplician Demo";
+	const string window_name = "Laplacian Demo";
 
 	Mat src, src_gray, dst;
 	int kernel_size = 3;
